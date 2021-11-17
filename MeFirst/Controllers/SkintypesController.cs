@@ -11,11 +11,11 @@ namespace MeFirst.Controllers
         public IActionResult Index()
         {
             //use the category model to generate a list of 3 skin types
-            var skinTypes = new List<Skintype>();
+            var skinTypes = new List<SkinType>();
             
             for (var i = 1; i <4; i++)
             {
-                skinTypes.Add(new Skintype { SkintypeId = i, Remedy = "skinType" + i.ToString() });
+                skinTypes.Add(new SkinType {SkinTypeId = i, Remedy = "skinType" + i.ToString() });
             }
 
             // pass the skin type list for display

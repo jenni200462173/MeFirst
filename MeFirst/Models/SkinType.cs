@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace MeFirst.Models
 {
-    public class skinType
+    public class SkinType
     {
-        //in .net,for pk fields,use the name {Model}Id or just id
-        public int SkintypeId { get; set; }
+        public int SkinTypeId{get; set;}
         public string Remedy { get; set; }
     }
 }
