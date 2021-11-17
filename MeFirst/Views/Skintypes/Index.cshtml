@@ -1,13 +1,23 @@
-﻿<h1> Skin types and how to identify them </h1>
-<p>
-    Dry skin
-</p>
-<p>
-    Oily skin
-</p>
-<p>
-    Aging skin
-</p>
-<p>
-    Combination skin
-</p>
+﻿@model IEnumerable<MeFirst.Controllers.Skintype>
+@{ ViewData["Title"] = "SkinTypes";}
+
+
+<ul>
+    @foreach(var c in Model)
+            {
+    <li>
+        @class="Remedy"><@c>
+    </li>
+            }
+    @*<h1> Find the perfect solution for your skin. </h1>
+        <ul>
+            <li>
+                <a asp-controller="Skintypes" asp-action="Browse" asp-route-category="Skintypes1">Dry skin</a>
+            </li>
+
+            <li><a asp-controller="Skintypes" asp-action="Browse" asp-route-category="Skintypes2">Oily skin</a></li>
+
+            <li><a asp-controller="Skintypes" asp-action="Browse" asp-route-category="Skintypes3">Combination skin</a></li>
+        </ul>*@
+
+</ul>

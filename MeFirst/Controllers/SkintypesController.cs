@@ -3,14 +3,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using MeFirst.Models;
 namespace MeFirst.Controllers
 {
     public class SkintypesController : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            //use the category model to generate a list of 3 skin types
+            var skinTypes = new List<Skintype>();
+            
+            for (var i = 1; i <4; i++)
+            {
+                skinTypes.Add(new Skintype { SkintypeId = i, Remedy = "skinType" + i.ToString() });
+            }
+
+            // pass the skin type list for display
+            return View(skinTypes);
         }
+
+        // adding skin care types pages
+        // method to check for where user clicks
+        public IActionResult Browse( string skintypes)
+        {
+            // if skintype is missing 
+           // if (skintypes== null)
+          //  {
+            //    return RedirectToAction("Index");
+         //   }
+            // store the input parameter using Viewbag
+            ViewBag.skintypes = skintypes;
+
+            return View();
+;        }
     }
 }
