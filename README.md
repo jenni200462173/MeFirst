@@ -7,3 +7,6 @@ I have also created a treatments models where there will be treatments avilable 
 
 I added a [KEY] over my primary key because it would not run otherwise.
 https://stackoverflow.com/questions/60600835/the-entity-type-access-requires-a-primary-key-to-be-defined-if-you-intended-t
+
+Azure Me-First database
+https://portal.azure.com/#@georgiancollege.onmicrosoft.com/resource/subscriptions/cd6df817-6f6a-4d09-893e-4933a821770b/resourceGroups/MeFirst/providers/Microsoft.Sql/servers/mefirst1/databases/MeFirst/overview
