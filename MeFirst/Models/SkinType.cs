@@ -9,7 +9,8 @@ namespace MeFirst.Models
     public class SkinType
     {
         [Required]
-        public int SkyinTypeID { get; set; }
+        [Key]
+        public int SkyinTypeId { get; set; }
 
         public string Dry { get; set; }
 

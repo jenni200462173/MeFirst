@@ -8,14 +8,16 @@ namespace MeFirst.Models
 {
     public class Browse
     {
-        
-            
-            public int BrosweId { get; set; }
+
+            [Key]
+            public string BrosweId { get; set; }
 
             [Required(ErrorMessage = "Hey you're missing something")]
             public string User { get; set; }
 
             //ref to child model; browsing all skinTypes to choose the users skintype 1 to many relationship
-            public List<Browse> SkinTypes { get; set; }
-        }
+            public List<Browse> Skintypes { get; set; }
+            public List<Treatments> Treatments { get; set; }
+
+    }
 }
