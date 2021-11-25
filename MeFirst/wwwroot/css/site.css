@@ -19,11 +19,12 @@ a {
     background-color: #f2d6f1;
     border-color: #b990af;
 }
+/* Pink button for Create */
 .btn-primary hover{
         color:#b990af;
  }
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-        color: #fff;
+        color: #b990af;
         background-color: #1b6ec2;
         border-color: #1861ac;
     }
