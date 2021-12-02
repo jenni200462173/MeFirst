@@ -82,7 +82,7 @@ namespace MeFirst.Controllers
                 if (User != null)
                 {
                     var fileName = UploadPhoto(User);
-                    browse.User = fileName;
+                    browse.Photo = fileName;
                 }
    
                 _context.Add(browse);

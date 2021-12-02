@@ -10,12 +10,13 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
+
 a {
   color: saddlebrown;
 }
 /* Pink button for Create */
 .btn-primary {
-    color: #b990af;
+    color: #e5e5e5;
     background-color: #b990af;
     border-color: #b990af;
 }
@@ -24,10 +25,10 @@ a {
         color:#b990af;
  }
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-        color: #b990af;
-        background-color: #1b6ec2;
-        border-color: #1861ac;
-    }
+    color: #b990af;
+    background-color: #b990af;
+    border-color: #1861ac;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -64,8 +65,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Merriweather Sans', sans-serif;
 }
 .footer {
   position: absolute;
@@ -75,3 +77,10 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+/* over-ride boostrap navbar-grey*/
+.navbar-dark {
+    background-color: #a492a0;
+}
+.table-stripped tbody tr: nth-of-type(2n+1) {
+    background-color: saddlebrown;
+}
