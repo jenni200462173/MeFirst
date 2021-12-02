@@ -20,7 +20,7 @@ namespace MeFirst.Models
         public string Spf { get; set; }
 
         [Required]
-        public string SkinTypeId { get; set; }
+        public int SkinTypeId { get; set; }
 
         // user can have multiple treatments for one skin problem 1 to many relationship
         public Browse Browse { get; set; }

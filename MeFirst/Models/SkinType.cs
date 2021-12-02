@@ -21,6 +21,7 @@ namespace MeFirst.Models
         public string Combination { get; set; }
 
         [Required]
+        [DisplayFormat(DataFormatString ="{0: c}")] // c repersents MS currancey format not completely necessary but want to add for future ideas
         public string TreatmentsID { get; set; }
         // Adding a parent refrence to browse 
         public Browse Browse { get; set; }

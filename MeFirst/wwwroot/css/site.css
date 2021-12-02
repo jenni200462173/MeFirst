@@ -13,10 +13,10 @@ a.navbar-brand {
 a {
   color: saddlebrown;
 }
-
+/* Pink button for Create */
 .btn-primary {
-    color: #b990af;
-    background-color: #f2d6f1;
+    color: #e5e5e5;
+    background-color: #7d12d0;
     border-color: #b990af;
 }
 /* Pink button for Create */

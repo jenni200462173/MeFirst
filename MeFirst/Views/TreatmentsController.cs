@@ -7,92 +7,88 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MeFirst.Data;
 using MeFirst.Models;
-using Microsoft.AspNetCore.Http;
 
-namespace MeFirst.Controllers
+namespace MeFirst.Views
 {
-    public class BrowsesController : Controller
+    public class TreatmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public BrowsesController(ApplicationDbContext context)
+        public TreatmentsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Browses
+        // GET: Treatments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Browses.ToListAsync());
+            return View(await _context.Treatments.ToListAsync());
         }
 
-        // GET: Browses/Details/5
-        public async Task<IActionResult> Details(string id)
+        // GET: Treatments/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var browse = await _context.Browses
-                .FirstOrDefaultAsync(m => m.BrosweId == id);
-            if (browse == null)
+            var treatments = await _context.Treatments
+                .FirstOrDefaultAsync(m => m.TreatmentsId == id);
+            if (treatments == null)
             {
                 return NotFound();
             }
 
-            return View(browse);
+            return View(treatments);
         }
-        private static string uploadPhoto(IFormFile Photo)
-        {
 
-        }
-        // GET: Browses/Create
+        // GET: Treatments/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Browses/Create
+        // POST: Treatments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrosweId,User")] Browse browse)
+        public async Task<IActionResult> Create([Bind("TreatmentsId,Moisturizer,Retinal,Toner,Spf,SkinTypeId")] Treatments treatments)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(browse);
+                _context.Add(treatments);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(browse);
+            return View(treatments);
         }
 
-        // GET: Browses/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        // GET: Treatments/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var browse = await _context.Browses.FindAsync(id);
-            if (browse == null)
+            var treatments = await _context.Treatments.FindAsync(id);
+            if (treatments == null)
             {
                 return NotFound();
             }
-            return View(browse);
+            return View(treatments);
         }
 
-        // POST: Browses/Edit/5
+        // POST: Treatments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BrosweId,User")] Browse browse)
+        public async Task<IActionResult> Edit(int id, [Bind("TreatmentsId,Moisturizer,Retinal,Toner,Spf,SkinTypeId")] Treatments treatments)
         {
-            if (id != browse.BrosweId)
+            if (id != treatments.TreatmentsId)
             {
                 return NotFound();
             }
@@ -101,12 +97,12 @@ namespace MeFirst.Controllers
             {
                 try
                 {
-                    _context.Update(browse);
+                    _context.Update(treatments);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BrowseExists(browse.BrosweId))
+                    if (!TreatmentsExists(treatments.TreatmentsId))
                     {
                         return NotFound();
                     }
@@ -117,41 +113,41 @@ namespace MeFirst.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(browse);
+            return View(treatments);
         }
 
-        // GET: Browses/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        // GET: Treatments/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var browse = await _context.Browses
-                .FirstOrDefaultAsync(m => m.BrosweId == id);
-            if (browse == null)
+            var treatments = await _context.Treatments
+                .FirstOrDefaultAsync(m => m.TreatmentsId == id);
+            if (treatments == null)
             {
                 return NotFound();
             }
 
-            return View(browse);
+            return View(treatments);
         }
 
-        // POST: Browses/Delete/5
+        // POST: Treatments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var browse = await _context.Browses.FindAsync(id);
-            _context.Browses.Remove(browse);
+            var treatments = await _context.Treatments.FindAsync(id);
+            _context.Treatments.Remove(treatments);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BrowseExists(string id)
+        private bool TreatmentsExists(int id)
         {
-            return _context.Browses.Any(e => e.BrosweId == id);
+            return _context.Treatments.Any(e => e.TreatmentsId == id);
         }
     }
 }
