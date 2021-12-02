@@ -18,6 +18,6 @@ namespace MeFirst.Models
             //ref to child model; browsing all skinTypes to choose the users skintype 1 to many relationship
             public List<Browse> Skintypes { get; set; }
             public List<Treatments> Treatments { get; set; }
-
+        public string Photo { get; internal set; }
     }
 }

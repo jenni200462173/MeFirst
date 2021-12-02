@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MeFirst.Data;
 using MeFirst.Models;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace MeFirst.Controllers
 {
@@ -43,9 +44,24 @@ namespace MeFirst.Controllers
 
             return View(browse);
         }
-        private static string uploadPhoto(IFormFile Photo)
+        private static string UploadPhoto(IFormFile User)
         {
+            // get temp location of upload file
+            var filePath = Path.GetTempFileName();
 
+            // create a unique name for the image
+
+            var fileName = Guid.NewGuid() + "-" + User.FileName;
+            //setting the destenation folder dynamically to make it work on any system.
+            var uploadPath = System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\img\\communityuploads" + fileName;
+
+            // onwards we want to excute the file save
+            using(var stream = new FileStream(uploadPath, FileMode.Create))
+            {
+                User.CopyTo(stream);
+            }
+            // send the unique uploaded file name back so that we can save it to the db
+            return fileName;
         }
         // GET: Browses/Create
         public IActionResult Create()
@@ -58,14 +74,24 @@ namespace MeFirst.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrosweId,User")] Browse browse)
+        public async Task<IActionResult> Create([Bind("BrosweId")] Browse browse,IFormFile User)
         {
             if (ModelState.IsValid)
             {
+                // upoad photo if any
+                if (User != null)
+                {
+                    var fileName = UploadPhoto(User);
+                    browse.User = fileName;
+                }
+   
                 _context.Add(browse);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
+            ViewData["BrosweId"] = new SelectList(_context.Browses, "BrosweId", "User", browse.BrosweId);
+           
             return View(browse);
         }
 
