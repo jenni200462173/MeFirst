@@ -9,9 +9,12 @@ using MeFirst.Data;
 using MeFirst.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeFirst.Controllers
 {
+    // make authenticated users only able to acess
+    [Authorize]
     public class BrowsesController : Controller
     {
         private readonly ApplicationDbContext _context;
