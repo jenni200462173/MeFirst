@@ -31,6 +31,7 @@ namespace MeFirst.Controllers
         }
 
         // GET: Browses/Details/5
+        [AllowAnonymous]// the only method that is public. 
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
