@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace MeFirst.Controllers
 {
     // make authenticated users only able to acess
-    [Authorize]
+    [Authorize(Roles = "Admininstrator")]
     public class BrowsesController : Controller
     {
         private readonly ApplicationDbContext _context;
