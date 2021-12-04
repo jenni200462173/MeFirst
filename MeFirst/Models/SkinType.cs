@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeFirst.Models
 {
+    [Authorize(Roles = "Administrator")]
     public class SkinType
     {
         [Required]

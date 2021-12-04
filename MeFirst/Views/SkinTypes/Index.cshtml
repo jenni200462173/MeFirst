@@ -4,30 +4,30 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Understanding your skin type</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Determine your routine.</a>
+    <a asp-action="Create">Create New</a>
 </p>
-<table class="table sortable table-stripped table-hover">
+<table class="table">
     <thead>
         <tr>
             <th>
-                <a href="#">Dry</a>
+                @Html.DisplayNameFor(model => model.Dry)
             </th>
             <th>
-                <a href="#">Agining</a>
+                @Html.DisplayNameFor(model => model.Aging)
             </th>
             <th>
-                <a href="#">Oily</a>
+                @Html.DisplayNameFor(model => model.Oily)
             </th>
             <th>
-                <a href="#">Combination</a>
+                @Html.DisplayNameFor(model => model.Combination)
             </th>
-            <th class="sorttable_nosort">   
+            <th>
+                @Html.DisplayNameFor(model => model.TreatmentsID)
             </th>
-            <th class="sorttable_nosort"> 
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
