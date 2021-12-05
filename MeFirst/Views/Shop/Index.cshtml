@@ -1,1 +1,18 @@
-﻿<h1> Shop or users fav skin care products.</h1>
+﻿@model IEnumerable<MeFirst.Models.SkinType>
+
+@{ ViewData["Title"] = "Shop our Store";}
+
+<h1>Shop the communities fav products</h1>
+
+<section class="row card-group">
+    @foreach (var c in Model)
+            {
+                <div class="col-sm-6 col-lg-4 mb-3">
+                    <div class="card mb-4 text-center h-100">
+                        <div class="card-body">
+                          <a asp-controller="Shop"  asp-action="ShopBySkintype" asp-route-id="@c.SkyinTypeId">@c.TreatmentsID</a>
+                        </div>
+                    </div>
+                </div>
+            }
+</section>
