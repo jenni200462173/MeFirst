@@ -81,6 +81,10 @@ body {
 .navbar-dark {
     background-color: #a492a0;
 }
-.table-stripped tbody tr: nth-of-type(2n+1) {
-    background-color: saddlebrown;
+.background{
+   
+    width:100%;
 }
+
+
+

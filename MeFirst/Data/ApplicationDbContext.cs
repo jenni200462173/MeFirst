@@ -20,5 +20,7 @@ namespace MeFirst.Data
         {
         }
 
+        public DbSet<MeFirst.Models.Products> Products { get; set; }
+
     }
 }

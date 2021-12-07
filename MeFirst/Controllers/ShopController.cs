@@ -20,8 +20,8 @@ namespace MeFirst.Controllers
         public IActionResult Index()
         {
             // passing a list of skintypes where users can shop from their skin type. 
-            var SkinTypes = _context.SkinTypes.OrderBy(c => c.TreatmentsID).ToList();
-            return View(SkinTypes);
+            var Products = _context.Products.OrderBy(c => c.SkinTypeID).ToList();
+            return View(Products);
         }
     }
 }

@@ -37,7 +37,15 @@ namespace MeFirst
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            
+
+            // enabling google sign in using NuGet package we just added and API keys
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration.GetValue<string>("Authentication:Google:ClientId");
+                    options.ClientSecret = Configuration.GetValue<string>("Authentication:Google:ClientSecret");
+                });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
