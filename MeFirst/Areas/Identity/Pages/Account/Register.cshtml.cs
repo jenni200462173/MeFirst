@@ -78,7 +78,7 @@ namespace MeFirst.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    // AUTOMATICALLY add any new users as a customer  instead of admin
+                    // AUTOMATICALLY add any new users as a customer  instead of admin. Note, if you want to add another admin just change to administrator, then switch back.
                     await _userManager.AddToRoleAsync(user, "Customer");
                     _logger.LogInformation("User created a new account with password.");
 
