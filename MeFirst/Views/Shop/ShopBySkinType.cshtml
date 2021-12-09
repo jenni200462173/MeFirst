@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MeFirst.Models.Products>
+
+@{ViewData["Title"] = "skin care products";}
+
+<h1>The best skincare finds</h1>
+<section class="row card group">
+    @foreach (var p in Model)
+    {
+        <div class="col-sm-6-col-lg-4 mb-3">
+                <div class="card mb-4 text-center h-100">
+                    <div class="card-body">
+                        <h5>@p.Name</h5>
+                        <h6>@String.Format("{0:c}", p.Price)</h6>
+                     </div>
+                </div>
+        </div>
+    }
+</section>

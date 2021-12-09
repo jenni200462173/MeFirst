@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MeFirst.Data;
+using MeFirst.Models;
 
 
 namespace MeFirst.Controllers
@@ -19,9 +20,24 @@ namespace MeFirst.Controllers
         }
         public IActionResult Index()
         {
-            // passing a list of skintypes where users can shop from their skin type. 
+            // passing where users can shop from brands  
             var Products = _context.Products.OrderBy(c => c.SkinTypeID).ToList();
             return View(Products);
         }
+
+        // getting the shoByProdcuts// ****Working sorta, just not showing what user clicked on***
+        public IActionResult ShopBySkinType(int id)
+        {
+            var products = _context.Products
+                .Where(p => p.ProductsId == id)
+                .OrderBy(p =>p.Name)
+                .ToList();
+
+
+            
+
+            return View(products);
+        }
     }
 }
+

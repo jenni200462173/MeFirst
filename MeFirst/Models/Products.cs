@@ -18,6 +18,7 @@ namespace MeFirst.Models
         public string Combination { get; set; }
 
         public string SkinTypeID { get; set; }
+
         // Adding a parent refrence to browse 
        
         public List <SkinType> SkinTypes{ get; set; }
