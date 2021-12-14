@@ -17,6 +17,10 @@
                 <div class="card-body">
                     <a asp-controller="Shop" asp-action="ShopBySkintype" asp-route-id="@c.Name">@c.Name</a>
                 </div>
+                <form method="post" action="/Shop/AddToCart">
+                    <input type="hidden" name="ProductId" value="@c.ProductsId"/>
+                    <button class="btn btn-primary mt-3">Add to cart</button>
+                </form>
             </div>
         </div>
     }

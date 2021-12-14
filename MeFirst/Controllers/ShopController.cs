@@ -32,12 +32,23 @@ namespace MeFirst.Controllers
                 .Where(p => p.ProductsId == id)
                 .OrderBy(p =>p.Name)
                 .ToList();
-
-
-            
-
             return View(products);
         }
+
+        // POST: /Shop/AddtoCart
+        [HttpPost]
+        public IActionResult AddToCart(int ProductsId)
+        {
+            // getting the product price
+            var product = _context.Products.Find(ProductsId);
+            var price = product.Price;
+            // determine who the user is and their indvidual carts
+            // save to CartItems table in db
+            // redirect to the cart Page so user can see their full cart
+
+
+        }
+
     }
 }
 

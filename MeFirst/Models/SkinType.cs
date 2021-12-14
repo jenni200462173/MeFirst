@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MeFirst.Models
 {
- /*   [Authorize(Roles = "Administrator")]*/
+  [Authorize(Roles = "Administrator")]
     public class SkinType
     {
         [Required]

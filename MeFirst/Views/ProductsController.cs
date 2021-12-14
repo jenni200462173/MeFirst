@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MeFirst.Data;
 using MeFirst.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeFirst.Views
 {
+    [Authorize(Roles = "Administrator")]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
